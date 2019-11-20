@@ -1,0 +1,46 @@
+{
+	"name": "@petorca/pass-hash",
+	"version": "1.0.0",
+	"description": "Straightforward, dependency-free configurable password hashing",
+	"keywords": [
+		"password",
+		"hashing",
+		"cryptography"
+	],
+	"homepage": "https://github.com/socram8888/pass-hash-js",
+	"bugs": {
+		"url": "https://github.com/socram8888/pass-hash-js/issues",
+		"email": "marcos@orca.pet"
+	},
+	"license": "WTFPL",
+	"author": {
+		"name": "Marcos Del Sol Vives",
+		"email": "marcos@orca.pet",
+		"url": "https://orca.pet"
+	},
+	"files": [
+		"lib/"
+	],
+	"main": "lib/pass-hash.js",
+	"typings": "lib/pass-hash.d.ts",
+	"repository": "github:socram8888/pass-hash-js",
+	"scripts": {
+		"prepare": "npm run clean && npm run compile && npm test && npm run lint",
+		"compile": "node node_modules/typescript/lib/tsc",
+		"test": "node node_modules/mocha/bin/mocha",
+		"lint": "node node_modules/eslint/bin/eslint.js src/**/*.ts",
+		"clean": "[ ! -d lib ] || rm -r lib"
+	},
+	"dependencies": {},
+	"devDependencies": {
+		"@types/assert": "^1.4.3",
+		"@types/mocha": "^5.2.7",
+		"@typescript-eslint/eslint-plugin": "^2.7.0",
+		"@typescript-eslint/parser": "^2.7.0",
+		"assert": "^2.0.0",
+		"eslint": "^6.6.0",
+		"mocha": "^6.2.2",
+		"ts-node": "^8.5.0",
+		"typescript": "^3.7.2"
+	}
+}
