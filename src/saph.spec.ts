@@ -14,7 +14,7 @@ describe('Saph hash test', () => {
 		const calculated = Buffer.from(await saph.hash('just', 'a', 'test')).toString('hex');
 		equal(calculated, '8a6d4f4a170929f264dae967748bf9f8f63ac732093ed439c444b044730109ff');
 	});
-/*
+
 	it('should match Python two-word test', async () => {
 		const saph = new Saph(16384, 8);
 		const calculated = Buffer.from(await saph.hash('salt', 'pass')).toString('hex');
@@ -31,5 +31,5 @@ describe('Saph hash test', () => {
 		const saph = new Saph(16384, 8);
 		const calculated = Buffer.from(await saph.hash('qepper', 'username', 'password')).toString('hex');
 		equal(calculated, 'bb4a74eb50bab2e4cd334d93ee85d84f9c91f454ef33a68a484408747f0f391a');
-	});*/
+	});
 });
