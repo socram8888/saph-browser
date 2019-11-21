@@ -1,10 +1,11 @@
 
 import { equal } from 'assert';
 import { Saph } from './saph';
+import WebCrypto = require("node-webcrypto-ossl");
 
-// Load polyfill for WebCrypto
-let WebCrypto = require("node-webcrypto-ossl");
+// Load polyfill so we can test in on Node
 
+// eslint-disable-next-line @typescript-eslint/ban-ts-ignore
 // @ts-ignore
 global.crypto = new WebCrypto();
 

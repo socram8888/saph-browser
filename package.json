@@ -21,8 +21,8 @@
 	"files": [
 		"lib/"
 	],
-	"browser": "lib/saph.js",
-	"typings": "lib/saph.d.ts",
+	"browser": "lib/index.js",
+	"typings": "lib/index.d.ts",
 	"repository": "github:socram8888/saph-browser",
 	"scripts": {
 		"prepare": "npm run clean && npm run compile && npm test && npm run lint",

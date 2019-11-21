@@ -32,13 +32,13 @@ export class Saph {
 	 * <p>Please note that generating the memory is done using AES-128. This means that increasing
 	 * this value also increases time complexity.
 	 */
-	get memory(): number {
+	public get memory(): number {
 		return this._memory;
 	}
 
-	set memory(memory: number) {
+	public set memory(memory: number) {
 		const memoryInt = memory | 0;
-		if (memoryInt < 0 || memoryInt != memory) {
+		if (memoryInt < 0 || memoryInt !== memory) {
 			throw new Error("Memory size must be a positive integer");
 		}
 		this._memory = memoryInt;
@@ -52,13 +52,13 @@ export class Saph {
 	 * <p>As opposed to the memory parameter, this only affects time complexity, not space
 	 * complexity.
 	 */
-	get iterations(): number {
+	public get iterations(): number {
 		return this._iterations;
 	}
 
-	set iterations(iterations: number) {
+	public set iterations(iterations: number) {
 		const itersInt = iterations | 0;
-		if (itersInt < 0 || itersInt != iterations) {
+		if (itersInt < 0 || itersInt !== iterations) {
 			throw new Error("Iterations must be a positive integer");
 		}
 		this._iterations = itersInt;
@@ -71,18 +71,18 @@ export class Saph {
 		// Create a new, all-zero memory
 		let memory = new Uint8Array(this._memory * 64);
 
-		for (var iteration = 0; iteration < this._iterations; iteration++) {
+		for (let iteration = 0; iteration < this._iterations; iteration++) {
 			const key = await crypto.subtle.importKey(
-					'raw', // key format
-					current.subarray(0, 16), // key material,
-					'AES-CBC', // algorithm
-					false, // extractable
-					[ 'encrypt' ] // usages
+					'raw', // Key format
+					current.subarray(0, 16), // Key material,
+					'AES-CBC', // Algorithm
+					false, // Extractable
+					[ 'encrypt' ] // Usages
 			);
 
 			const cbcConfig: AesCbcParams = {
-					'name': 'AES-CBC',
-					'iv': current.subarray(16, 32)
+				'name': 'AES-CBC',
+				'iv': current.subarray(16, 32)
 			}
 
 			// Generate hash input by encrypting using AES-CBC all the zeros
