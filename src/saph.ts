@@ -67,10 +67,9 @@ export class Saph {
 	public async hash(... parts: (string | Uint8Array)[]): Promise<Uint8Array> {
 		// Calculate initial hash
 		let current = await this._hashParts(parts);
-		console.log(Buffer.from(current).toString('hex'));
 
 		// Create a new, all-zero memory
-		const memory = new Uint8Array(this._memory * 64);
+		let memory = new Uint8Array(this._memory * 64);
 
 		for (var iteration = 0; iteration < this._iterations; iteration++) {
 			const key = await crypto.subtle.importKey(
@@ -124,7 +123,9 @@ export class Saph {
 			// Finally calculate the memory hash
 			const currentBuffer = await crypto.subtle.digest('SHA-256', memory);
 			current = new Uint8Array(currentBuffer);
-			console.log(Buffer.from(current).toString('hex'));
+
+			// Update memory, removing padding
+			memory = encrypted.subarray(0, this._memory * 64);
 		}
 
 		return current;
