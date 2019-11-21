@@ -1,15 +1,15 @@
 {
-	"name": "@petorca/pass-hash",
+	"name": "saph-browser",
 	"version": "1.0.0",
-	"description": "Straightforward, dependency-free configurable password hashing",
+	"description": "Stupid Algorithm for Password Hashing (WebCrypto implementation)",
 	"keywords": [
 		"password",
 		"hashing",
 		"cryptography"
 	],
-	"homepage": "https://github.com/socram8888/pass-hash-js",
+	"homepage": "https://github.com/socram8888/saph-browser",
 	"bugs": {
-		"url": "https://github.com/socram8888/pass-hash-js/issues",
+		"url": "https://github.com/socram8888/saph-browser/issues",
 		"email": "marcos@orca.pet"
 	},
 	"license": "WTFPL",
@@ -21,9 +21,9 @@
 	"files": [
 		"lib/"
 	],
-	"main": "lib/pass-hash.js",
-	"typings": "lib/pass-hash.d.ts",
-	"repository": "github:socram8888/pass-hash-js",
+	"browser": "lib/saph.js",
+	"typings": "lib/saph.d.ts",
+	"repository": "github:socram8888/saph-browser",
 	"scripts": {
 		"prepare": "npm run clean && npm run compile && npm test && npm run lint",
 		"compile": "node node_modules/typescript/lib/tsc",
@@ -31,7 +31,9 @@
 		"lint": "node node_modules/eslint/bin/eslint.js src/**/*.ts",
 		"clean": "[ ! -d lib ] || rm -r lib"
 	},
-	"dependencies": {},
+	"dependencies": {
+		"@types/node": "^12.12.11"
+	},
 	"devDependencies": {
 		"@types/assert": "^1.4.3",
 		"@types/mocha": "^5.2.7",
@@ -40,6 +42,7 @@
 		"assert": "^2.0.0",
 		"eslint": "^6.6.0",
 		"mocha": "^6.2.2",
+		"node-webcrypto-ossl": "^1.0.48",
 		"ts-node": "^8.5.0",
 		"typescript": "^3.7.2"
 	}
