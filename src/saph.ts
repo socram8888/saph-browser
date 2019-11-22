@@ -1,6 +1,12 @@
 
 /**
- * The Stupid Algorithm for Password Hashing.
+ * Stupid Algorithm for Password Hashing.
+ *
+ * SAPH is a simple, secure and straighforward password hashing algorithm available for multiple
+ * programming languages.
+ *
+ * For documentation on how the algorithm works, check
+ * the specification document <https://github.com/socram8888/saph>`.
  */
 export class Saph {
 
@@ -64,6 +70,12 @@ export class Saph {
 		this._iterations = itersInt;
 	}
 
+	/**
+	 * Hashes the given parts, which could be a mix of salt, pepper and password.
+	 *
+	 * @param parts password parts, as string or byte array
+	 * @return encoded password as byte array
+	 */
 	public async hash(... parts: (string | Uint8Array)[]): Promise<Uint8Array> {
 		// Calculate initial hash
 		let current = await this._hashParts(parts);
@@ -131,6 +143,12 @@ export class Saph {
 		return current;
 	}
 
+	/**
+	 * Generates the initial status given all the password parts.
+	 *
+	 * @param parts hash input, as strings or byte arrays
+	 * @return initial value for algorithm
+	 */
 	private async _hashParts(parts: (string | Uint8Array)[]): Promise<Uint8Array> {
 		const hashes = new Uint8Array(parts.length * 32);
 		const encoder = new TextEncoder();
