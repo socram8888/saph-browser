@@ -1,4 +1,6 @@
 
+import { SaphHash } from './saph-hash';
+
 /**
  * Stupid Algorithm for Password Hashing.
  *
@@ -6,7 +8,7 @@
  * programming languages.
  *
  * For documentation on how the algorithm works, check
- * the specification document <https://github.com/socram8888/saph>`.
+ * `the specification document <https://github.com/socram8888/saph>`.
  */
 export class Saph {
 
@@ -76,7 +78,7 @@ export class Saph {
 	 * @param parts password parts, as string or byte array
 	 * @return encoded password as byte array
 	 */
-	public async hash(... parts: (string | Uint8Array)[]): Promise<Uint8Array> {
+	public async hash(... parts: (string | Uint8Array)[]): Promise<SaphHash> {
 		// Calculate initial hash
 		let current = await this._hashParts(parts);
 
@@ -140,7 +142,7 @@ export class Saph {
 			memory = encrypted.subarray(0, this._memory * 64);
 		}
 
-		return current;
+		return new SaphHash(current);
 	}
 
 	/**
