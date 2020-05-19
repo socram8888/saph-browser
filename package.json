@@ -29,8 +29,8 @@
 		"compile": "node node_modules/typescript/lib/tsc",
 		"test": "node node_modules/mocha/bin/mocha",
 		"lint": "node node_modules/eslint/bin/eslint.js src/**/*.ts",
-		"clean": "[ ! -d lib ] || rm -r lib",
-		"pack": "npx webpack"
+		"clean": "[ ! -d lib ] || rm -r lib; [ ! -d dist ] || rm -r dist",
+		"webpack": "npm run prepare && npx webpack"
 	},
 	"dependencies": {},
 	"devDependencies": {

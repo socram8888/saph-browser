@@ -6,6 +6,7 @@ module.exports = {
 		saph: './lib/index.js'
 	},
 	output: {
-		filename: `saph.v${ packageInfo.version }.js`
+		library: 'saph',
+		filename: `saph-v${ packageInfo.version }.js`
 	}
 }
