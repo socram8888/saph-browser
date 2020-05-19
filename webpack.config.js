@@ -1,4 +1,4 @@
-const path = require('path');
+const packageInfo = require('./package.json');
 
 module.exports = {
 	mode: 'production',
@@ -6,6 +6,6 @@ module.exports = {
 		saph: './lib/index.js'
 	},
 	output: {
-		filename: 'saph.bundle.js'
+		filename: `saph.v${ packageInfo.version }.js`
 	}
 }
