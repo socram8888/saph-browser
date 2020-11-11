@@ -8,7 +8,7 @@ import { SaphHash } from './saph-hash';
  * programming languages.
  *
  * For documentation on how the algorithm works, check
- * `the specification document <https://github.com/socram8888/saph>`.
+ * `the specification document <https://orca.pet/saph/>`.
  */
 export class Saph {
 

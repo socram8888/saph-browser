@@ -1,12 +1,21 @@
-const packageInfo = require('./package.json');
+const path = require('path');
 
 module.exports = {
 	mode: 'production',
-	entry: {
-		saph: './lib/index.js'
+	entry: './src/index.ts',
+	devtool: 'sourcemap',
+	module: {
+		rules: [
+			{
+				test: /\.ts$/,
+				loader: 'ts-loader'
+			}
+		]
+	},
+	resolve: {
+		extensions: [ '.tsx', '.ts', '.js' ],
 	},
 	output: {
-		library: 'saph',
-		filename: `saph-v${ packageInfo.version }.js`
+		filename: 'saph.js'
 	}
 }
