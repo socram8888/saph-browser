@@ -3,7 +3,7 @@ const path = require('path');
 module.exports = {
 	mode: 'production',
 	entry: './src/index.ts',
-	devtool: 'sourcemap',
+	devtool: 'source-map',
 	module: {
 		rules: [
 			{
@@ -16,6 +16,7 @@ module.exports = {
 		extensions: [ '.tsx', '.ts', '.js' ],
 	},
 	output: {
-		filename: 'saph.js'
+		filename: 'saph.js',
+		libraryTarget: 'umd'
 	}
 }

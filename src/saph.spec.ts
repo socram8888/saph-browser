@@ -1,13 +1,12 @@
 
 import { equal } from 'assert';
 import { Saph } from './saph';
-import WebCrypto = require("node-webcrypto-ossl");
+import { Crypto } from 'node-webcrypto-ossl';
+import btoa = require('btoa');
 
 // Load polyfill so we can test in on Node
-
-// eslint-disable-next-line @typescript-eslint/ban-ts-ignore
-// @ts-ignore
-global.crypto = new WebCrypto();
+global.crypto = new Crypto();
+global.btoa = btoa;
 
 function bytes2hex(x: Uint8Array): string {
 	return Buffer.from(x).toString('hex');
