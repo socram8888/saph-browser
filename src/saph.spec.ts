@@ -2,7 +2,7 @@
 import { equal } from 'assert';
 import { Saph } from './saph';
 import { Crypto } from 'node-webcrypto-ossl';
-import btoa = require('btoa');
+import btoa from 'btoa';
 
 // Load polyfill so we can test in on Node
 global.crypto = new Crypto();

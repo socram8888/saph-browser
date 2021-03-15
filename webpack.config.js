@@ -1,6 +1,5 @@
-const path = require('path');
 
-module.exports = {
+export default {
 	mode: 'production',
 	entry: './src/index.ts',
 	devtool: 'source-map',
@@ -8,7 +7,10 @@ module.exports = {
 		rules: [
 			{
 				test: /\.ts$/,
-				loader: 'ts-loader'
+				loader: 'ts-loader',
+				options: {
+					configFile: 'tsconfig-webpack.json'
+				}
 			}
 		]
 	},
@@ -16,7 +18,7 @@ module.exports = {
 		extensions: [ '.tsx', '.ts', '.js' ],
 	},
 	output: {
-		filename: 'saph.js',
+		filename: 'saph.umd.js',
 		libraryTarget: 'umd'
 	}
 }

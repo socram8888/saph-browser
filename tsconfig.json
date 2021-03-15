@@ -1,9 +1,9 @@
 {
 	"compilerOptions": {
-		"target": "es2017",
-		"module": "commonjs",
+		"target": "es2018",
+		"module": "es6",
 		"declaration": true,
-		"outDir": "./dist/",
+		"outDir": "dist/",
 		"strict": true,
 		"sourceMap": true
 	},
@@ -13,5 +13,12 @@
 	"exclude": [
 		"node_modules/",
 		"src/**/*.spec.ts"
-	]
+	],
+	"ts-node": {
+		"compilerOptions": {
+			"module": "commonjs",
+			"esModuleInterop": true,
+			"moduleResolution": "node"
+		}
+	}
 }
