@@ -1,6 +1,6 @@
 {
 	"name": "saph-browser",
-	"version": "1.3.0",
+	"version": "1.3.1",
 	"description": "Stupid Algorithm for Password Hashing (WebCrypto implementation)",
 	"keywords": [
 		"password",
@@ -21,10 +21,9 @@
 	"files": [
 		"dist/"
 	],
-	"type": "module",
+	"main": "dist/saph.umd.js",
 	"module": "dist/index.js",
 	"typings": "dist/index.d.ts",
-	"browser": "dist/saph.umd.js",
 	"repository": "github:socram8888/saph-browser",
 	"scripts": {
 		"prepare": "npm run clean && npm run lint && npm run compile && npm test",
